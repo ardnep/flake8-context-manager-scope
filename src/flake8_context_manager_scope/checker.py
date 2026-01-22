@@ -17,12 +17,6 @@ from typing import Any, ClassVar, Generator
 
 __version__ = "0.0.1"
 
-# Context managers that should be checked
-DEFAULT_TRACKED_CONTEXT_MANAGERS = {
-    "get_async_session",
-    "get_sync_session",
-}
-
 
 class ContextManagerScope:
     """Tracks a context manager's variable and its valid scope."""
@@ -49,7 +43,7 @@ class ContextManagerScopeChecker:
     version = __version__
 
     # Class-level option for tracked context managers
-    tracked_context_managers: ClassVar[set[str]] = DEFAULT_TRACKED_CONTEXT_MANAGERS
+    tracked_context_managers: ClassVar[set[str]] = set()
 
     def __init__(self, tree: ast.AST):
         self.tree = tree
@@ -62,10 +56,10 @@ class ContextManagerScopeChecker:
         """Add plugin options to flake8."""
         parser.add_option(
             "--context-manager-scope-functions",
-            default=",".join(DEFAULT_TRACKED_CONTEXT_MANAGERS),
+            default="",
             parse_from_config=True,
             comma_separated_list=True,
-            help="Comma-separated list of context manager functions to track (default: %default)",
+            help="Comma-separated list of context manager functions to track",
         )
 
     @classmethod

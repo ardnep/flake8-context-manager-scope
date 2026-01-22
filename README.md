@@ -30,20 +30,20 @@ flake8 your_code.py
 
 ### Configuration
 
-By default, the plugin tracks `get_async_session` and `get_sync_session`. You can configure which context manager functions to track.
+You must configure which context manager functions to track.
 
 **In `pyproject.toml`** (requires `flake8-pyproject`):
 
 ```toml
 [tool.flake8]
-context-manager-scope-functions = "get_async_session,get_sync_session,open_database"
+context-manager-scope-functions = "get_async_session,get_sync_session"
 ```
 
 **In `.flake8` or `setup.cfg`:**
 
 ```ini
 [flake8]
-context-manager-scope-functions = get_async_session,get_sync_session,open_database
+context-manager-scope-functions = get_async_session,get_sync_session
 ```
 
 ## Error Codes
