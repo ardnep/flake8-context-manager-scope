@@ -69,7 +69,3 @@ async def good_example():
         user = await session.get(User, user_id)
         await session.refresh(user)  # Inside the context manager
 ```
-
-## License
-
-MIT
