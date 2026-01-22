@@ -15,7 +15,7 @@ Error codes:
 import ast
 from typing import Any, ClassVar, Generator
 
-__version__ = "1.0.0"
+__version__ = "0.0.1"
 
 # Context managers that should be checked
 DEFAULT_TRACKED_CONTEXT_MANAGERS = {
